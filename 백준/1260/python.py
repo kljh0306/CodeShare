@@ -1,6 +1,4 @@
-import queue
-
-q = queue.Queue()
+queue = []
 adj = [[0 for _ in range(1001)] for _ in range(1001)]
 visited_dfs = [0 for _ in range(1001)]
 visited_bfs = [0 for _ in range(1001)]
@@ -20,15 +18,15 @@ def dfs(now) :
     return
 
 def bfs(start) :
-    q.put(start)
+    queue.append(start)
     visited_bfs[start] = 1
-    while q.empty() != True :
-        now = q.get()
+    while len(queue) != 0:
+        now = queue.pop(-1)
         print(now, end=' ')
         for i in range(1, n+1) :
             if adj[now][i] == 1 and visited_bfs[i] == 0:
                 visited_bfs[i] = 1
-                q.put(i)
+                queue.append(i)
 
 dfs(v)     
 print()
