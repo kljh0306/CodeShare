@@ -21,7 +21,7 @@ def bfs(start) :
     queue.append(start)
     visited_bfs[start] = 1
     while len(queue) != 0:
-        now = queue.pop(-1)
+        now = queue.pop(0)
         print(now, end=' ')
         for i in range(1, n+1) :
             if adj[now][i] == 1 and visited_bfs[i] == 0:
