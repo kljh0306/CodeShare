@@ -13,7 +13,7 @@ for i in range(n) :
     tmp = list(map(int, input()))
     board.append(tmp)
 
-q.append([1, 0, 0])
+q.append([1, 0, 0]) #cnt, x좌표, y좌표
 while len(q) != 0 :
     now = q[0]
     q.pop(0)
@@ -22,9 +22,9 @@ while len(q) != 0 :
         break
 
     for i in range(4) :
-        now_x = now[1] + dx[i]
-        now_y = now[2] + dy[i]
-        if OOB(now_x, now_y) and board[now_x][now_y] == 1 and visited[now_x][now_y] ==0 :
-            q.append([now[0]+1,now_x, now_y])
-            visited[now_x][now_y] = 1
+        nx = now[1] + dx[i] #다음에 탐색할 x좌표
+        ny = now[2] + dy[i] #다음에 탐색할 y좌표
+        if OOB(nx, ny) and board[nx][ny] == 1 and visited[nx][ny] ==0 :
+            q.append([now[0]+1,nx, ny])
+            visited[nx][ny] = 1
 
